@@ -1,4 +1,6 @@
 # 小柯機器人專案追蹤工具
+<img width="834" height="912" alt="{BB373869-5E12-4A54-9823-30F2001A27DF}" src="https://github.com/user-attachments/assets/8df80174-7a33-4375-a2da-c02e8a51f0a0" />
+<img width="1912" height="992" alt="{F7C801FB-264C-419B-8027-DE9BD09F58D3}" src="https://github.com/user-attachments/assets/cb636e77-c386-42e7-950a-420f2e30f27e" />
 
 把工作整理得清清楚楚：誰要做什麼、做到哪裡、什麼時候要完成。功能參考 [GitHub Projects](https://docs.github.com/zh/issues/planning-and-tracking-with-projects)，全面繁體中文，由小柯機器人語音帶您上手。
 
