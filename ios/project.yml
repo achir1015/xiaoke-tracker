@@ -1,0 +1,59 @@
+name: XiaokeTracker
+options:
+  bundleIdPrefix: com.achir
+  deploymentTarget:
+    iOS: "17.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  XiaokeTracker:
+    type: application
+    platform: iOS
+    sources:
+      - path: XiaokeTracker
+      - path: web            # 和 Android 版同一份手機版網頁（sync.sh 從 ../mobile/www 複製進來），整個資料夾放進 App
+        type: folder
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.achir.xiaoketracker
+        TARGETED_DEVICE_FAMILY: "1,2"     # iPhone 與 iPad（含 iPad Pro）
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 7BN6XJ59KP      # Apple Developer Program（個人）；換帳號就改這裡
+        GENERATE_INFOPLIST_FILE: NO
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    info:
+      path: XiaokeTracker/Info.plist
+      properties:
+        CFBundleDisplayName: 小柯專案追蹤
+        CFBundleDevelopmentRegion: zh_TW
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        ITSAppUsesNonExemptEncryption: false
+        UILaunchScreen:
+          UIColorName: ""
+        UIViewControllerBasedStatusBarAppearance: false
+        UIStatusBarStyle: UIStatusBarStyleLightContent
+        UIRequiresFullScreen: false
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+schemes:
+  XiaokeTracker:
+    build:
+      targets:
+        XiaokeTracker: all
+    run:
+      config: Debug
+    archive:
+      config: Release

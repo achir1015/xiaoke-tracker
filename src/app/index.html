@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' app:; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.openai.com https://script.google.com https://script.googleusercontent.com https://api.github.com https://achir1015.github.io; font-src 'self'">
+  <title>小柯機器人專案追蹤工具</title>
+  <link rel="icon" href="img/logo64.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="topbar"></header>
+  <div id="shell">
+    <aside id="side" aria-label="專案清單"></aside>
+    <div id="sideBack"></div>
+    <main id="main"></main>
+    <aside id="detail" aria-label="項目詳細資料"></aside>
+    <aside id="agent" aria-label="小柯助手"></aside>
+  </div>
+  <div id="toasts" aria-live="polite"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

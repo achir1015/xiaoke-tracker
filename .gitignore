@@ -1,0 +1,12 @@
+node_modules/
+dist/
+e2e/out/
+android/build/
+android/*.jks
+android/local.properties
+mobile/www/
+ios/web/
+ios/build/
+ios/*.xcodeproj/
+ios/XiaokeTracker/Info.plist
+*.log

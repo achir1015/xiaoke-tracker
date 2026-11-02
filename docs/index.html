@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小柯機器人專案追蹤工具</title>
+<link rel="icon" href="ios/icon-180.png">
+<style>
+  :root { --bg: #0f172a; --card: #1e293b; --line: #334155; --fg: #e2e8f0; --dim: #94a3b8; --acc: #6366f1; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: radial-gradient(circle at 50% 0, #1e3a8a, var(--bg) 62%); color: var(--fg); font: 16px/1.65 "Microsoft JhengHei UI", -apple-system, "PingFang TC", "Noto Sans TC", sans-serif; min-height: 100vh; }
+  main { max-width: 900px; margin: 0 auto; padding: 32px 16px 56px; }
+  .hero { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+  .hero img { width: 104px; height: 104px; border-radius: 24px; box-shadow: 0 10px 28px #0007; }
+  h1 { margin: 0; font-size: 30px; line-height: 1.25; }
+  .sub { margin: 4px 0 0; color: var(--dim); }
+  .ver { color: #facc15; font-weight: 700; }
+  h2 { font-size: 19px; margin: 34px 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+  a.dl { display: flex; gap: 12px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 13px 15px; color: inherit; text-decoration: none; }
+  a.dl:hover { border-color: var(--acc); }
+  a.dl.main { background: var(--acc); border-color: transparent; }
+  a.dl .i { font-size: 27px; }
+  a.dl b { display: block; }
+  a.dl small { color: var(--dim); }
+  a.dl.main small { color: #e0e7ff; }
+  .fe { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 15px; }
+  .fe b { display: block; margin-bottom: 2px; }
+  .fe span { color: var(--dim); font-size: 15px; }
+  footer { margin-top: 38px; color: var(--dim); font-size: 14px; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <div class="hero">
+    <img src="ios/icon-512.png" alt="小柯機器人專案追蹤工具圖示">
+    <div><h1>小柯機器人專案追蹤工具</h1><p class="sub">誰要做什麼、做到哪裡、什麼時候完成，一眼就看得到。<span class="ver" id="ver"></span></p></div>
+  </div>
+
+  <h2>下載與使用</h2>
+  <div class="grid">
+    <a class="dl main" href="online/"><span class="i">🌐</span><span><b>打開線上版</b><small>不用安裝，瀏覽器直接使用</small></span></a>
+    <a class="dl" href="ios/"><span class="i">📱</span><span><b>iPhone／iPad</b><small>到安裝頁點選安裝</small></span></a>
+    <a class="dl" data-asset="android.apk" href="https://github.com/achir1015/xiaoke-tracker/releases/latest"><span class="i">🤖</span><span><b>Android</b><small>下載 APK</small></span></a>
+    <a class="dl" data-asset="win-x64.exe" href="https://github.com/achir1015/xiaoke-tracker/releases/latest"><span class="i">🪟</span><span><b>Windows 11 安裝版</b><small>建立桌面捷徑、可自動更新</small></span></a>
+    <a class="dl" data-asset="win-x64-portable.exe" href="https://github.com/achir1015/xiaoke-tracker/releases/latest"><span class="i">🧳</span><span><b>Windows 免安裝版</b><small>下載後直接執行</small></span></a>
+    <a class="dl" data-asset="mac-arm64.dmg" href="https://github.com/achir1015/xiaoke-tracker/releases/latest"><span class="i">🍎</span><span><b>Mac（Apple 晶片）</b><small>M1 以後的機型</small></span></a>
+    <a class="dl" data-asset="mac-x64.dmg" href="https://github.com/achir1015/xiaoke-tracker/releases/latest"><span class="i">🍏</span><span><b>Mac（Intel）</b><small>第一次開啟請按右鍵選「打開」</small></span></a>
+  </div>
+
+  <h2>可以做什麼</h2>
+  <div class="grid">
+    <div class="fe"><b>🗂️ 看板、表格、路線圖</b><span>同一份資料三種看法，拖曳就能改狀態和時程</span></div>
+    <div class="fe"><b>🎨 小圖案與顏色</b><span>專案、狀態、標籤都能有自己的顏色和圖案</span></div>
+    <div class="fe"><b>🤖 小柯助手</b><span>用自己的 OpenAI 金鑰，說一句話就幫您新增、拆解、整理</span></div>
+    <div class="fe"><b>⚡ 自動化工作流程</b><span>完成自動關閉、子項目完成自動結案、舊項目自動封存</span></div>
+    <div class="fe"><b>📈 洞察與專案更新</b><span>圖表掌握進度，標示順利、有風險或落後</span></div>
+    <div class="fe"><b>☁️ 雲端同步</b><span>資料存在自己的 Google 雲端硬碟，電腦手機同一份</span></div>
+    <div class="fe"><b>🎓 語音文字說明</b><span>小柯一課一課帶您上手</span></div>
+    <div class="fe"><b>⬆️ 自動更新</b><span>有新版本時按一下就更新，資料都會保留</span></div>
+  </div>
+
+  <footer>系統開發：吳玉柱 先生 與 Claude AI Opus 5.5　｜　<a href="https://github.com/achir1015/xiaoke-tracker">GitHub</a></footer>
+</main>
+<script>
+  // 下載連結直接指到最新版的檔案
+  fetch('https://api.github.com/repos/achir1015/xiaoke-tracker/releases/latest').then(function (r) { return r.ok ? r.json() : null; }).then(function (o) {
+    if (!o) return;
+    document.getElementById('ver').textContent = '　最新版 ' + o.tag_name;
+    document.querySelectorAll('[data-asset]').forEach(function (a) {
+      var hit = (o.assets || []).find(function (x) { return x.name.endsWith(a.dataset.asset); });
+      if (hit) a.href = hit.browser_download_url;
+    });
+  }).catch(function () {});
+</script>
+</body>
+</html>
