@@ -22,9 +22,16 @@
 
 | 平台 | 狀態 |
 | --- | --- |
-| Windows 11 | ✅ v1.0.0 |
-| macOS（Intel） | ✅ v1.0.0 |
-| Android、iPhone、iPad、線上版 | 開發中 |
+| Windows 11、macOS（Intel／Apple 晶片） | [下載](https://github.com/achir1015/xiaoke-tracker/releases/latest) |
+| Android | [下載 APK](https://github.com/achir1015/xiaoke-tracker/releases/latest) |
+| iPhone、iPad | [安裝頁](https://achir1015.github.io/xiaoke-tracker/ios/)（限登記過的裝置） |
+| 線上版 | [直接打開](https://achir1015.github.io/xiaoke-tracker/online/) |
+
+首頁：https://achir1015.github.io/xiaoke-tracker/
+
+## 發佈新版本
+
+改 `package.json` 的版本和 `docs/ios/manifest.plist` 的 `bundle-version`，推上 main 後 CI 會建 Windows、Mac 並建立 Release。APK（`python android/build.py`）和 `.ipa`（在 Mac 跑 `ios/build-ipa.sh`）要手動上傳到 Release，`.ipa` 檔名固定 `xiaoke-tracker-ios.ipa`。
 
 ## 雲端同步設定
 
