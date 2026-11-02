@@ -1,7 +1,7 @@
 {
   "name": "xiaoke-tracker",
   "productName": "小柯機器人專案追蹤工具",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "小柯機器人專案追蹤工具：表格、看板、路線圖、自訂欄位、迭代、自動化工作流程、洞察圖表、Google 雲端同步、OpenAI AI 助手、語音文字說明、自動更新",
   "main": "src/main/main.js",
   "author": {

@@ -32,7 +32,7 @@
 				<key>bundle-identifier</key>
 				<string>com.achir.xiaoketracker</string>
 				<key>bundle-version</key>
-				<string>1.1.0</string>
+				<string>1.1.1</string>
 				<key>kind</key>
 				<string>software</string>
 				<key>title</key>

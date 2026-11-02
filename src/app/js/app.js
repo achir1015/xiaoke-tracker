@@ -221,7 +221,7 @@ function buildShell() {
     h('button', { class: 'icon-btn', id: 'btnMenu', 'aria-label': '選單', onclick: () => document.body.classList.toggle('side-open') }, '☰'),
     h('b', { id: 'topTitle' }, '小柯專案追蹤'),
     h('span', { class: 'sp' }),
-    h('button', { class: 'icon-btn', id: 'btnUndo', title: '復原', 'aria-label': '復原', onclick: () => { const l = store.undo(); toast(l ? `復原：${l}` : '沒有可以復原的動作'); } }, '↩'),
+    h('button', { class: 'icon-btn', id: 'btnUndo', title: '復原', 'aria-label': '復原', onclick: () => { const l = store.undo(); toast(l ? `復原：${l}` : '沒有可以復原的動作'); } }, '↩\uFE0E'),
     h('button', { class: 'icon-btn', id: 'btnTopAgent', 'aria-label': '小柯助手', onclick: () => toggleAgent() }, h('img', { src: 'img/robot96.png', alt: '', width: 24, height: 24 })));
   $('#sideBack').addEventListener('click', () => document.body.classList.remove('side-open'));
   $('#side').addEventListener('click', (e) => { if (e.target.closest('button')) document.body.classList.remove('side-open'); });

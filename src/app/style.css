@@ -484,7 +484,10 @@ button.rm-name:hover .tt { color: var(--accent); text-decoration: underline; }
 /* 頂端列與抽屜只有手機版面才出現 */
 #topbar, #sideBack { display: none; }
 #topTitle { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-@media (hover: none) { .grip { visibility: visible; color: var(--muted); } }
+@media (hover: none) {
+  .grip { visibility: visible; color: var(--muted); }
+  ::-webkit-scrollbar { width: 0; height: 0; } /* 觸控裝置滑動就好，捲動軸只會佔空間 */
+}
 
 @media (max-width: 1180px) {
   #detail.open { width: 380px; }
