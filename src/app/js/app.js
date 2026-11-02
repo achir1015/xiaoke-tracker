@@ -282,6 +282,7 @@ async function boot() {
     S.page = 'project'; S.pid = p.id;
   } else if (store.projects().length === 1) { S.page = 'project'; S.pid = store.projects()[0].id; }
 
+  document.documentElement.dataset.platform = xk.platform;
   document.documentElement.dataset.ready = '1';
   render();
   addEventListener('focusout', () => setTimeout(() => { if (pending) refresh(); }, 0));

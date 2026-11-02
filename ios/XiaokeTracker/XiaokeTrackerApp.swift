@@ -29,6 +29,7 @@ final class Web: NSObject, WKScriptMessageHandlerWithReply, WKNavigationDelegate
     static let shared = Web()
     let view: WKWebView
     private var saves: [String: (url: URL, handle: FileHandle, name: String)] = [:]
+    private var selfTested = false
 
     override init() {
         let cfg = WKWebViewConfiguration()
@@ -71,6 +72,29 @@ final class Web: NSObject, WKScriptMessageHandlerWithReply, WKNavigationDelegate
     func webView(_ w: WKWebView, createWebViewWith c: WKWebViewConfiguration, for a: WKNavigationAction, windowFeatures f: WKWindowFeatures) -> WKWebView? {
         if let u = a.request.url { UIApplication.shared.open(u) }
         return nil
+    }
+
+    // 實機自我檢查：devicectl 帶環境變數 XK_SELFTEST=1 啟動才會跑，結果寫到 App 的 Documents（selftest.txt、selftest.png）
+    func webView(_ w: WKWebView, didFinish nav: WKNavigation!) {
+        guard ProcessInfo.processInfo.environment["XK_SELFTEST"] == "1", !selfTested else { return }
+        selfTested = true
+        let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            w.evaluateJavaScript("[...document.querySelectorAll('.modal-foot .btn')].find((x) => x.textContent.includes('先自己看看'))?.click(); 1") { _, _ in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    let js = """
+                    JSON.stringify({ ready: document.documentElement.dataset.ready, platform: document.documentElement.dataset.platform, version: window.XK_VERSION, w: innerWidth, h: innerHeight,
+                      cards: document.querySelectorAll('.card').length, modal: !!document.querySelector('.modal'), overflow: document.documentElement.scrollWidth > innerWidth + 1,
+                      topbar: getComputedStyle(document.querySelector('#topbar')).display, safeTop: getComputedStyle(document.querySelector('#topbar')).paddingTop,
+                      zhVoices: speechSynthesis.getVoices().filter((v) => /^zh/i.test(v.lang)).length, title: document.querySelector('#topTitle').textContent })
+                    """
+                    w.evaluateJavaScript(js) { r, e in
+                        try? String(describing: r ?? e ?? "nil").write(to: docs.appendingPathComponent("selftest.txt"), atomically: true, encoding: .utf8)
+                        w.takeSnapshot(with: nil) { img, _ in try? img?.pngData()?.write(to: docs.appendingPathComponent("selftest.png")) }
+                    }
+                }
+            }
+        }
     }
 
     // 網頁被系統回收時（記憶體不足）自動重新載入
